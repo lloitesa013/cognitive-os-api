@@ -57,8 +57,8 @@ body {
 
 h1 {
   margin: 0;
-  font-size: clamp(2rem, 5vw, 4.1rem);
-  line-height: 1.02;
+  font-size: clamp(2rem, 4.2vw, 3.45rem);
+  line-height: 1.06;
   letter-spacing: 0;
   max-width: 920px;
 }
@@ -96,7 +96,10 @@ h1 {
   min-height: 118px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
 }
 
 .metric-grid span,
@@ -112,18 +115,20 @@ h1 {
 
 .tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
-  overflow-x: auto;
+  overflow-x: visible;
   padding: 18px 0 12px;
 }
 
 .tabs button {
+  flex: 1 1 auto;
   border: 1px solid var(--line);
   background: #fff;
   color: var(--muted);
   border-radius: 8px;
   padding: 9px 12px;
-  white-space: nowrap;
+  white-space: normal;
   cursor: pointer;
 }
 

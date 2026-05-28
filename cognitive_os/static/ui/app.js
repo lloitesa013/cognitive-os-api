@@ -41,8 +41,8 @@ function renderOverview() {
 function renderEnvelope() {
   const first = state.demo.profiles.guardian.decision_envelope;
   document.querySelector("#envelope").innerHTML = `
-    <h2>DecisionEnvelope</h2>
-    <p class="small">Redacted public envelope for the canonical investor prompt. Raw prompt and candidate text are represented by hashes.</p>
+    <h2>Decision Envelope</h2>
+    <p class="small">Redacted public envelope. Source and candidate content are represented only by hashes.</p>
     <pre>${escapeHtml(JSON.stringify(first, null, 2))}</pre>`;
 }
 
@@ -132,7 +132,7 @@ function renderViewer() {
 function renderExport() {
   document.querySelector("#export").innerHTML = `
     <h2>Evidence Export</h2>
-    <p class="small">Combined public evidence payload. Raw prompt and candidate text are not included.</p>
+    <p class="small">Combined public evidence payload. Source and candidate content are not included.</p>
     <pre>${escapeHtml(JSON.stringify(state.exportPayload, null, 2))}</pre>`;
 }
 
