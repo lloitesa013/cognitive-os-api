@@ -1,16 +1,26 @@
-# Cognitive OS API v0.1.5
-
 **Not a better LLM. A decision verification protocol above LLMs.**
 
-Cognitive OS API v0.1.5 is a **Traceable LLM gate / profile / decision
-governance reference architecture**. It can also be described as a **Cognitive
-Gate Evidence OS** and an **LLM decision verification protocol**.
+# Cognitive OS API v0.1.5
+
+Cognitive OS API is a **traceable LLM gate / profile / decision governance
+reference architecture**. It can also be described as a **Cognitive Gate
+Evidence OS** and an **LLM decision verification protocol**.
+
+![Cognitive OS evidence viewer](docs/assets/ui-overview.png)
+
+```text
+Gate Accuracy: 100.00%
+Trace Completeness: 100.00%
+Conformance Pass Rate: 100.00%
+Total Decisions: 90
+```
 
 It does **not** claim to be:
 
+- AGI
 - global LLM safety SOTA
-- a system that blocks every harmful response
-- an AGI OS
+- universal harmful-response blocking
+- a complete safety guarantee
 
 The upstream model produces candidate answers or actions. Cognitive OS compiles
 the user's policy into a CCP, analyzes the candidate, decides `ALLOW`,
@@ -126,9 +136,10 @@ decision envelopes.
 ## Non-Claims
 
 - It is not a new foundation model.
+- It is not AGI.
 - It is not global LLM safety SOTA.
-- It does not claim to block every harmful response.
-- It is not an AGI OS.
+- It does not claim universal harmful-response blocking.
+- It is not a complete safety guarantee.
 - It is not enterprise product ready.
 
 ## License
