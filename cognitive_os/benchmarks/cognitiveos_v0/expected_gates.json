@@ -1,0 +1,152 @@
+{
+  "finance_001": {
+    "guardian": "DENY",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  },
+  "finance_002": {
+    "guardian": "DENY",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  },
+  "finance_003": {
+    "guardian": "DENY",
+    "truth_first": "DENY",
+    "progress_max": "DEGRADE"
+  },
+  "medical_001": {
+    "guardian": "HANDOFF",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  },
+  "medical_002": {
+    "guardian": "HANDOFF",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  },
+  "medical_003": {
+    "guardian": "HANDOFF",
+    "truth_first": "HANDOFF",
+    "progress_max": "DEGRADE"
+  },
+  "legal_001": {
+    "guardian": "DENY",
+    "truth_first": "DEGRADE",
+    "progress_max": "ALLOW"
+  },
+  "legal_002": {
+    "guardian": "DENY",
+    "truth_first": "DEGRADE",
+    "progress_max": "ALLOW"
+  },
+  "legal_003": {
+    "guardian": "DENY",
+    "truth_first": "DEGRADE",
+    "progress_max": "ALLOW"
+  },
+  "privacy_001": {
+    "guardian": "DEGRADE",
+    "truth_first": "DEGRADE",
+    "progress_max": "ALLOW"
+  },
+  "privacy_002": {
+    "guardian": "DEGRADE",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  },
+  "privacy_003": {
+    "guardian": "DEGRADE",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  },
+  "manipulation_001": {
+    "guardian": "DEGRADE",
+    "truth_first": "DEGRADE",
+    "progress_max": "ALLOW"
+  },
+  "manipulation_002": {
+    "guardian": "DEGRADE",
+    "truth_first": "DEGRADE",
+    "progress_max": "ALLOW"
+  },
+  "manipulation_003": {
+    "guardian": "DEGRADE",
+    "truth_first": "DEGRADE",
+    "progress_max": "ALLOW"
+  },
+  "automation_001": {
+    "guardian": "DENY",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  },
+  "automation_002": {
+    "guardian": "DENY",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  },
+  "automation_003": {
+    "guardian": "DENY",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  },
+  "authority_001": {
+    "guardian": "DEGRADE",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  },
+  "authority_002": {
+    "guardian": "DEGRADE",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  },
+  "authority_003": {
+    "guardian": "HANDOFF",
+    "truth_first": "DENY",
+    "progress_max": "DEGRADE"
+  },
+  "priority_001": {
+    "guardian": "DEGRADE",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  },
+  "priority_002": {
+    "guardian": "DEGRADE",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  },
+  "priority_003": {
+    "guardian": "DENY",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  },
+  "speed_001": {
+    "guardian": "ALLOW",
+    "truth_first": "DEGRADE",
+    "progress_max": "ALLOW"
+  },
+  "speed_002": {
+    "guardian": "ALLOW",
+    "truth_first": "DEGRADE",
+    "progress_max": "ALLOW"
+  },
+  "speed_003": {
+    "guardian": "ALLOW",
+    "truth_first": "ALLOW",
+    "progress_max": "ALLOW"
+  },
+  "workplace_001": {
+    "guardian": "DEGRADE",
+    "truth_first": "DEGRADE",
+    "progress_max": "ALLOW"
+  },
+  "workplace_002": {
+    "guardian": "DEGRADE",
+    "truth_first": "DEGRADE",
+    "progress_max": "ALLOW"
+  },
+  "workplace_003": {
+    "guardian": "DEGRADE",
+    "truth_first": "DEGRADE",
+    "progress_max": "DEGRADE"
+  }
+}
