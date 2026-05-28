@@ -139,12 +139,27 @@ function renderExport() {
 function wireTabs() {
   document.querySelectorAll(".tabs button").forEach((button) => {
     button.addEventListener("click", () => {
-      document.querySelectorAll(".tabs button").forEach((item) => item.classList.remove("active"));
-      document.querySelectorAll(".panel").forEach((panel) => panel.classList.remove("active"));
-      button.classList.add("active");
-      document.getElementById(button.dataset.tab).classList.add("active");
+      activateTab(button.dataset.tab, true);
     });
   });
+  window.addEventListener("hashchange", () => activateTab(tabFromHash(), false));
+}
+
+function activateTab(tabId, updateHash) {
+  const panel = document.getElementById(tabId);
+  const button = document.querySelector(`.tabs button[data-tab="${tabId}"]`);
+  if (!panel || !button) return;
+  document.querySelectorAll(".tabs button").forEach((item) => item.classList.remove("active"));
+  document.querySelectorAll(".panel").forEach((item) => item.classList.remove("active"));
+  button.classList.add("active");
+  panel.classList.add("active");
+  if (updateHash) {
+    history.replaceState(null, "", `#${tabId}`);
+  }
+}
+
+function tabFromHash() {
+  return window.location.hash.replace("#", "") || "overview";
 }
 
 function escapeHtml(value) {
@@ -171,6 +186,7 @@ async function main() {
   renderBaseline();
   renderViewer();
   renderExport();
+  activateTab(tabFromHash(), false);
 }
 
 main().catch((error) => {
