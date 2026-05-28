@@ -16,7 +16,7 @@ Cognitive OS API v0.1.5 Presentation UI
   - Trace Completeness: `100.00%`
   - Conformance Pass Rate: `100.00%`
   - Total Decisions: `90`
-- Redacted public demo payloads for profile-specific DecisionEnvelope review
+- Redacted public demo payloads for profile-specific Decision Envelope review
 
 ## Positioning
 

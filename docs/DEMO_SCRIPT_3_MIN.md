@@ -18,13 +18,13 @@ protocol conformance evidence.
 Cognitive OS API is not a better LLM. It is a decision verification protocol
 above LLMs. The upstream model generates candidates; Cognitive OS applies a
 profile-specific CCP, analyzes risk, decides `ALLOW`, `DEGRADE`, `DENY`, or
-`HANDOFF`, and returns a redacted DecisionEnvelope.
+`HANDOFF`, and returns a redacted Decision Envelope.
 
 ## 1:45-2:30 - UI Walkthrough
 
 Open `/ui`. Start on Overview and show the four headline numbers: Gate Accuracy
 100.00%, Trace Completeness 100.00%, Conformance Pass Rate 100.00%, and Total
-Decisions 90. Then open DecisionEnvelope to show the public redacted envelope,
+Decisions 90. Then open Decision Envelope to show the public redacted envelope,
 Conformance to show protocol pass rate, and Baseline Comparison to show why gate
 plus trace is the differentiator.
 
