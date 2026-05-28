@@ -6,6 +6,10 @@ Cognitive OS API is a **traceable LLM gate / profile / decision governance
 reference architecture**. It can also be described as a **Cognitive Gate
 Evidence OS** and an **LLM decision verification protocol**.
 
+In the broader AI verification portfolio, Financial Agent Evidence OS verifies
+AI performance claims. Cognitive OS verifies LLM decisions before they become
+actions or public outputs.
+
 ![Cognitive OS evidence viewer](docs/assets/ui-overview.png)
 
 ```text
