@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cognitive-os-api"
+version = "0.1.4"
+description = "Traceable LLM gate/profile/decision governance reference architecture."
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+  "fastapi>=0.103,<0.104",
+  "uvicorn>=0.22,<0.23",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.24,<0.25",
+]
+
+[tool.setuptools.packages.find]
+include = ["cognitive_os*"]
