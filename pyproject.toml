@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cognitive-os-api"
-version = "0.1.4"
-description = "Traceable LLM gate/profile/decision governance reference architecture."
+version = "0.1.5"
+description = "Presentation evidence viewer for traceable LLM decision governance."
 readme = "README.md"
 requires-python = ">=3.7"
 dependencies = [

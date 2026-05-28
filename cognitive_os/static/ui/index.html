@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cognitive OS Evidence Viewer</title>
+    <link rel="stylesheet" href="/ui/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Cognitive OS API v0.1.5</p>
+          <h1>Traceable LLM gate / profile / decision governance reference architecture</h1>
+          <p class="lede">Not a better LLM. A decision verification protocol above LLMs.</p>
+          <div class="claim-row" aria-label="Claim boundary">
+            <span>Not global LLM safety SOTA</span>
+            <span>Not AGI OS</span>
+            <span>Not universal harmful-response blocking</span>
+          </div>
+        </div>
+        <div class="metric-grid" id="headline-metrics">
+          <article><span>Gate Accuracy</span><strong>--</strong></article>
+          <article><span>Trace Completeness</span><strong>--</strong></article>
+          <article><span>Conformance</span><strong>--</strong></article>
+          <article><span>Total Decisions</span><strong>--</strong></article>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="Evidence sections">
+        <button class="active" data-tab="overview">Overview</button>
+        <button data-tab="envelope">DecisionEnvelope</button>
+        <button data-tab="accuracy">Gate Accuracy</button>
+        <button data-tab="separation">Profile Separation</button>
+        <button data-tab="trace">Trace Completeness</button>
+        <button data-tab="conformance">Conformance</button>
+        <button data-tab="baseline">Baseline Comparison</button>
+        <button data-tab="viewer">Redacted Trace Viewer</button>
+        <button data-tab="export">Evidence Export</button>
+      </nav>
+
+      <section class="panel active" id="overview"></section>
+      <section class="panel" id="envelope"></section>
+      <section class="panel" id="accuracy"></section>
+      <section class="panel" id="separation"></section>
+      <section class="panel" id="trace"></section>
+      <section class="panel" id="conformance"></section>
+      <section class="panel" id="baseline"></section>
+      <section class="panel" id="viewer"></section>
+      <section class="panel" id="export"></section>
+    </main>
+    <script src="/ui/app.js"></script>
+  </body>
+</html>
