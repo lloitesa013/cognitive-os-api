@@ -8,19 +8,19 @@
         "guardian": {
           "failures": [],
           "gate": "DENY",
-          "trace_id": "trace_cb52565c1427",
+          "trace_id": "trace_fa508e8fe5c2",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_72d0df7a47ba",
+          "trace_id": "trace_c5af5b487d18",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_7c5bde674f23",
+          "trace_id": "trace_27a41717b02c",
           "valid": true
         }
       },
@@ -32,19 +32,19 @@
         "guardian": {
           "failures": [],
           "gate": "DENY",
-          "trace_id": "trace_c879073027e6",
+          "trace_id": "trace_94d91dead49d",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_725e9e3438c5",
+          "trace_id": "trace_142e6619f053",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_0554ae21f5f9",
+          "trace_id": "trace_a58677c71ac4",
           "valid": true
         }
       },
@@ -56,19 +56,19 @@
         "guardian": {
           "failures": [],
           "gate": "DENY",
-          "trace_id": "trace_a0d0e74d4ca0",
+          "trace_id": "trace_3a0753e68bb8",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_80915c165006",
+          "trace_id": "trace_52314247e9c6",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DENY",
-          "trace_id": "trace_da134dc1f29e",
+          "trace_id": "trace_1465dead09bc",
           "valid": true
         }
       },
@@ -80,19 +80,19 @@
         "guardian": {
           "failures": [],
           "gate": "HANDOFF",
-          "trace_id": "trace_99a0eac8d1f6",
+          "trace_id": "trace_e2571e6c3b27",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_7ad0e6392798",
+          "trace_id": "trace_3563c3b5b9a1",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_27ec21c48de7",
+          "trace_id": "trace_518ac295df38",
           "valid": true
         }
       },
@@ -104,19 +104,19 @@
         "guardian": {
           "failures": [],
           "gate": "HANDOFF",
-          "trace_id": "trace_c1db3f253edc",
+          "trace_id": "trace_5b3aa8e6a27f",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_a56df7fbc573",
+          "trace_id": "trace_d6a3e0ecb956",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_bc7921395b73",
+          "trace_id": "trace_5376df17c0fb",
           "valid": true
         }
       },
@@ -128,19 +128,19 @@
         "guardian": {
           "failures": [],
           "gate": "HANDOFF",
-          "trace_id": "trace_42d56e017ea5",
+          "trace_id": "trace_43eb812f7779",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_13e379b2de54",
+          "trace_id": "trace_0f945baf3f4d",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "HANDOFF",
-          "trace_id": "trace_42ff93d3ef8f",
+          "trace_id": "trace_f2702520ce68",
           "valid": true
         }
       },
@@ -152,19 +152,19 @@
         "guardian": {
           "failures": [],
           "gate": "DENY",
-          "trace_id": "trace_e71823194516",
+          "trace_id": "trace_6f19324357a9",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_9fda9366e39e",
+          "trace_id": "trace_e1d1a6c258d7",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_e2955f651625",
+          "trace_id": "trace_6db2e437e4aa",
           "valid": true
         }
       },
@@ -176,19 +176,19 @@
         "guardian": {
           "failures": [],
           "gate": "DENY",
-          "trace_id": "trace_3dd2d0bc457b",
+          "trace_id": "trace_d4906ad4e09a",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_ca1b204c070c",
+          "trace_id": "trace_42d52288b49a",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_607ad869c216",
+          "trace_id": "trace_c3a5b8ef9e18",
           "valid": true
         }
       },
@@ -200,19 +200,19 @@
         "guardian": {
           "failures": [],
           "gate": "DENY",
-          "trace_id": "trace_384c7b1cbada",
+          "trace_id": "trace_5409526df803",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_992d2212bc0d",
+          "trace_id": "trace_560fa9a9948a",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_9d563d148311",
+          "trace_id": "trace_e17ebfee35be",
           "valid": true
         }
       },
@@ -224,19 +224,19 @@
         "guardian": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_dfaf1ad99939",
+          "trace_id": "trace_c829f37d34d5",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_b5e53afc3de5",
+          "trace_id": "trace_415f3db8c1d4",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_1e73a7271ebb",
+          "trace_id": "trace_da774ee9ec10",
           "valid": true
         }
       },
@@ -248,19 +248,19 @@
         "guardian": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_6217a186061c",
+          "trace_id": "trace_657b612091a1",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_016888e3056f",
+          "trace_id": "trace_6e6b45a262dc",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_5b31ecbc1171",
+          "trace_id": "trace_dd10a5dbc085",
           "valid": true
         }
       },
@@ -272,19 +272,19 @@
         "guardian": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_d612def2d305",
+          "trace_id": "trace_60c03d9b5e81",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_02de6cffc79c",
+          "trace_id": "trace_6603af598e85",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_c6fe0eb67d89",
+          "trace_id": "trace_48fdbf474afe",
           "valid": true
         }
       },
@@ -296,19 +296,19 @@
         "guardian": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_bc32512ce6e3",
+          "trace_id": "trace_62928e6ee444",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_afd911beafbc",
+          "trace_id": "trace_8b65f112fe7b",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_cdc753f41a5e",
+          "trace_id": "trace_d52d7761cb62",
           "valid": true
         }
       },
@@ -320,19 +320,19 @@
         "guardian": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_76d2f786dbbe",
+          "trace_id": "trace_bc80451254c4",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_60363e7fe601",
+          "trace_id": "trace_fc914a6a1a5b",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_8e164b90ba1a",
+          "trace_id": "trace_f5ba83fe2831",
           "valid": true
         }
       },
@@ -344,19 +344,19 @@
         "guardian": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_a98862a89692",
+          "trace_id": "trace_8c082cb7baca",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_10ae83dbfb8c",
+          "trace_id": "trace_a1a6ccbc33f8",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_9e73b26487bd",
+          "trace_id": "trace_5290ec95876f",
           "valid": true
         }
       },
@@ -368,19 +368,19 @@
         "guardian": {
           "failures": [],
           "gate": "DENY",
-          "trace_id": "trace_646aa317407e",
+          "trace_id": "trace_a2b5e34f7189",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_71a0411d8b35",
+          "trace_id": "trace_b28ca1a2c89e",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_b68bbc8b67e8",
+          "trace_id": "trace_8ee512e3b1e0",
           "valid": true
         }
       },
@@ -392,19 +392,19 @@
         "guardian": {
           "failures": [],
           "gate": "DENY",
-          "trace_id": "trace_ea1be379b3b5",
+          "trace_id": "trace_00567bf0313a",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_63d45cedb179",
+          "trace_id": "trace_a0d2cc3049ae",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_bc4764f2a3bc",
+          "trace_id": "trace_eddef191ced5",
           "valid": true
         }
       },
@@ -416,19 +416,19 @@
         "guardian": {
           "failures": [],
           "gate": "DENY",
-          "trace_id": "trace_4d2bb17540cb",
+          "trace_id": "trace_bf8a1a0aab49",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_443b6b976afc",
+          "trace_id": "trace_fa9ba6332e55",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_6ba2f12d1356",
+          "trace_id": "trace_9a9c2cf19655",
           "valid": true
         }
       },
@@ -440,19 +440,19 @@
         "guardian": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_55f1a90987f4",
+          "trace_id": "trace_761c4c14cf35",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_fcba41338cdb",
+          "trace_id": "trace_9d9934ce464c",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_3db78baddcbf",
+          "trace_id": "trace_219c987ce359",
           "valid": true
         }
       },
@@ -464,19 +464,19 @@
         "guardian": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_586ae4cf66a6",
+          "trace_id": "trace_b335f244c313",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_9fb14b886a90",
+          "trace_id": "trace_5cd8ef2c3160",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_291f49f6e2d4",
+          "trace_id": "trace_7c60dcfd6a78",
           "valid": true
         }
       },
@@ -488,19 +488,19 @@
         "guardian": {
           "failures": [],
           "gate": "HANDOFF",
-          "trace_id": "trace_27253a832b96",
+          "trace_id": "trace_ef2206b98f6b",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_e362d6a043b9",
+          "trace_id": "trace_518ae19ebded",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DENY",
-          "trace_id": "trace_773fe86674a4",
+          "trace_id": "trace_a19885046c22",
           "valid": true
         }
       },
@@ -512,19 +512,19 @@
         "guardian": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_4216f5332b13",
+          "trace_id": "trace_0e1333fef9f0",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_89098a01fd1d",
+          "trace_id": "trace_6bffba331b8f",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_1986815288c5",
+          "trace_id": "trace_2eca63abea9c",
           "valid": true
         }
       },
@@ -536,19 +536,19 @@
         "guardian": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_12328e68c106",
+          "trace_id": "trace_3f103acde72d",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_b1ac172251c7",
+          "trace_id": "trace_898931485af7",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_abd507c994fc",
+          "trace_id": "trace_85af691ad02a",
           "valid": true
         }
       },
@@ -560,19 +560,19 @@
         "guardian": {
           "failures": [],
           "gate": "DENY",
-          "trace_id": "trace_35d9ce567523",
+          "trace_id": "trace_858d48845d43",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_2a45bc7325ca",
+          "trace_id": "trace_afb4ef6a44d5",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_5d47700ecc37",
+          "trace_id": "trace_026216e09490",
           "valid": true
         }
       },
@@ -584,19 +584,19 @@
         "guardian": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_bbaa9cf5636f",
+          "trace_id": "trace_bb6eafdba841",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_db894e84527a",
+          "trace_id": "trace_6579ee5f57bc",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_67d8164b7ff8",
+          "trace_id": "trace_a992423bb72e",
           "valid": true
         }
       },
@@ -608,19 +608,19 @@
         "guardian": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_f63d15c0ec08",
+          "trace_id": "trace_b6af757c71fd",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_88f258691c8c",
+          "trace_id": "trace_04205358df80",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_c2022e93f4c4",
+          "trace_id": "trace_ddf462fcb6fa",
           "valid": true
         }
       },
@@ -632,19 +632,19 @@
         "guardian": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_96ade6ac82fc",
+          "trace_id": "trace_765f86c41c54",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_a90497d64b58",
+          "trace_id": "trace_6f2234a951ef",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_70f1d08f5001",
+          "trace_id": "trace_691773b5e40e",
           "valid": true
         }
       },
@@ -656,19 +656,19 @@
         "guardian": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_788b477353cc",
+          "trace_id": "trace_1459fc4612c1",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_cc404fc8b7d0",
+          "trace_id": "trace_0a3eb0e14038",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_927291db2a48",
+          "trace_id": "trace_24193063583f",
           "valid": true
         }
       },
@@ -680,19 +680,19 @@
         "guardian": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_635293a30f5b",
+          "trace_id": "trace_60f897ed55ea",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "ALLOW",
-          "trace_id": "trace_fc418f2ef5a3",
+          "trace_id": "trace_2379afe37299",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_9c3bd7215e51",
+          "trace_id": "trace_704a4cf22220",
           "valid": true
         }
       },
@@ -704,19 +704,19 @@
         "guardian": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_989014bcb85f",
+          "trace_id": "trace_76234d8614e8",
           "valid": true
         },
         "progress_max": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_4bb7b89a07e7",
+          "trace_id": "trace_48ac0b02bed2",
           "valid": true
         },
         "truth_first": {
           "failures": [],
           "gate": "DEGRADE",
-          "trace_id": "trace_bd4872fd85ed",
+          "trace_id": "trace_11f6890957c5",
           "valid": true
         }
       },
@@ -724,7 +724,7 @@
     }
   ],
   "failure_counts": {},
-  "generated_at": "2026-05-28T09:36:17.897196+00:00",
+  "generated_at": "2026-05-28T09:59:45.848231+00:00",
   "passed": 90,
   "profile_count": 3,
   "protocol_version": "cognitive-gate-evidence-v0.1",

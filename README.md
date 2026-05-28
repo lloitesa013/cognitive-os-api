@@ -1,8 +1,8 @@
-# Cognitive OS API v0.1.4
+# Cognitive OS API v0.1.5
 
 **Not a better LLM. A decision verification protocol above LLMs.**
 
-Cognitive OS API v0.1.4 is a **Traceable LLM gate / profile / decision
+Cognitive OS API v0.1.5 is a **Traceable LLM gate / profile / decision
 governance reference architecture**. It can also be described as a **Cognitive
 Gate Evidence OS** and an **LLM decision verification protocol**.
 
@@ -35,6 +35,13 @@ Optional FastAPI server:
 .\.venv\Scripts\python.exe -m uvicorn cognitive_os.api:app --reload
 ```
 
+Then open:
+
+```text
+http://127.0.0.1:8000/ui
+http://127.0.0.1:8000/ui/
+```
+
 ## API Shape
 
 - `GET /health`
@@ -44,6 +51,11 @@ Optional FastAPI server:
 - `GET /trace/{trace_id}`
 - `POST /validate/invariance`
 - `POST /validate/provider-portability`
+- `GET /evidence/summary`
+- `GET /evidence/demo`
+- `GET /evidence/export`
+- `GET /ui`
+- `GET /ui/`
 
 `/run`, `/compare`, and redacted trace retrieval emit a public
 `decision_envelope` that follows `cognitive-gate-evidence-v0.1`.
@@ -106,7 +118,7 @@ See:
 
 ## Claim
 
-Cognitive OS API v0.1.4 is a reference architecture for traceable LLM
+Cognitive OS API v0.1.5 is a reference architecture for traceable LLM
 gate/profile/decision governance. Under the current CognitiveOS-v0 seed
 benchmark, it demonstrates deterministic gate decisions and auditable public
 decision envelopes.

@@ -3,9 +3,15 @@
 from __future__ import annotations
 
 import os
+from pathlib import Path
 from typing import Any, Dict, Iterable, Optional
 
 from .compiler import compile_profile
+from .evidence import (
+    build_evidence_demo,
+    build_evidence_export,
+    build_evidence_summary,
+)
 from .profiles import list_default_profiles
 from .protocol import build_decision_envelope
 from .runtime import compare_profiles, run_prompt
@@ -15,9 +21,16 @@ from .version import PROTOCOL_VERSION, __version__
 
 try:
     from fastapi import FastAPI, HTTPException
+    from fastapi.responses import FileResponse
+    from fastapi.staticfiles import StaticFiles
 except ImportError:  # pragma: no cover - exercised only when FastAPI is absent
     FastAPI = None  # type: ignore
     HTTPException = Exception  # type: ignore
+    FileResponse = None  # type: ignore
+    StaticFiles = None  # type: ignore
+
+
+UI_DIR = Path(__file__).resolve().parent / "static" / "ui"
 
 
 def create_app(trace_store: Optional[InMemoryTraceStore] = None):
@@ -27,6 +40,13 @@ def create_app(trace_store: Optional[InMemoryTraceStore] = None):
     app = FastAPI(title="Cognitive OS API", version=__version__)
     store = trace_store or GLOBAL_TRACE_STORE
     app.state.trace_store = store
+
+    @app.get("/ui", include_in_schema=False)
+    def ui_index():
+        return FileResponse(str(UI_DIR / "index.html"))
+
+    if StaticFiles is not None:
+        app.mount("/ui", StaticFiles(directory=str(UI_DIR), html=True), name="ui")
 
     @app.get("/health")
     def health() -> Dict[str, Any]:
@@ -129,6 +149,18 @@ def create_app(trace_store: Optional[InMemoryTraceStore] = None):
             "gates": gates,
             "gate_consistency": len(set(gates.values())) == 1,
         }
+
+    @app.get("/evidence/summary")
+    def evidence_summary() -> Dict[str, Any]:
+        return build_evidence_summary()
+
+    @app.get("/evidence/demo")
+    def evidence_demo() -> Dict[str, Any]:
+        return build_evidence_demo()
+
+    @app.get("/evidence/export")
+    def evidence_export() -> Dict[str, Any]:
+        return build_evidence_export()
 
     return app
 
