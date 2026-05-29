@@ -2,15 +2,27 @@
 
 # Cognitive OS API v0.1.5
 
-Cognitive OS API is a **traceable LLM gate / profile / decision governance
-reference architecture**. It can also be described as a **Cognitive Gate
-Evidence OS** and an **LLM decision verification protocol**.
+Cognitive OS API is a traceable LLM gate / profile / decision governance
+reference architecture. It sits above upstream model output, compiles a user's
+policy into a Cognitive Configuration Profile, evaluates a candidate answer or
+action, and emits a public decision envelope.
 
-In the broader AI verification portfolio, Financial Agent Evidence OS verifies
-AI performance claims. Cognitive OS verifies LLM decisions before they become
-actions or public outputs.
+In the broader AI verification portfolio, Cognitive OS is the **decision
+protocol face**: it verifies whether an LLM decision should be allowed,
+degraded, denied, or handed off before it becomes action or public output.
 
 ![Cognitive OS evidence viewer](docs/assets/ui-overview.png)
+
+## What It Verifies
+
+- Profile-to-policy compilation.
+- Candidate-output review before action.
+- `ALLOW`, `DEGRADE`, `DENY`, and `HANDOFF` gate decisions.
+- Redacted public decision envelopes.
+- Local raw trace handling with explicit opt-in.
+- Seed benchmark and protocol conformance behavior.
+
+## Current Evidence Snapshot
 
 ```text
 Gate Accuracy: 100.00%
@@ -19,17 +31,23 @@ Conformance Pass Rate: 100.00%
 Total Decisions: 90
 ```
 
-It does **not** claim to be:
+Current seed benchmark:
 
-- AGI
-- global LLM safety SOTA
-- universal harmful-response blocking
-- a complete safety guarantee
+```text
+raw_llm             Gate Accuracy 17.78%, Trace 0.00%
+system_prompt_only  Gate Accuracy 66.67%, Trace 0.00%
+keyword_guardrail   Gate Accuracy 17.78%, Trace 0.00%
+cognitive_os        Gate Accuracy 100.00%, Trace 100.00%
+```
 
-The upstream model produces candidate answers or actions. Cognitive OS compiles
-the user's policy into a CCP, analyzes the candidate, decides `ALLOW`,
-`DEGRADE`, `DENY`, or `HANDOFF`, and emits a redacted public decision envelope
-plus an optional local raw trace.
+Protocol conformance target:
+
+```text
+CognitiveOS-v0 seed decisions x profiles -> 100.00% conformant
+```
+
+These are included-suite results, not external adoption or global safety
+claims.
 
 ## Quick Start
 
@@ -74,6 +92,24 @@ http://127.0.0.1:8000/ui/
 `/run`, `/compare`, and redacted trace retrieval emit a public
 `decision_envelope` that follows `cognitive-gate-evidence-v0.1`.
 
+## Trace Privacy
+
+Public API output is redacted by default. Raw API trace exposure requires both:
+
+```powershell
+$env:COGNITIVE_OS_ALLOW_RAW_TRACE_API="true"
+```
+
+and a request flag:
+
+```json
+{"include_raw_trace": true}
+```
+
+Local JSONL traces are written to `.cognitive_os/traces.jsonl` by default and
+are ignored by git. Set `COGNITIVE_OS_RAW_TRACE=false` to disable raw prompt and
+candidate persistence in local traces.
+
 ## OpenAI Adapter
 
 Set `OPENAI_API_KEY` and choose provider `openai` or `openai:<model>`.
@@ -90,61 +126,33 @@ $env:OPENAI_TIMEOUT="60"
 `OPENAI_STORE` defaults to `false` in this adapter so generated model responses
 are not stored for later retrieval unless explicitly requested.
 
-## Trace Privacy
-
-Public API output is redacted by default. Raw API trace exposure requires both:
-
-```powershell
-$env:COGNITIVE_OS_ALLOW_RAW_TRACE_API="true"
-```
-
-and a request flag:
-
-```json
-{"include_raw_trace": true}
-```
-
-Local JSONL traces are written to `.cognitive_os/traces.jsonl` by default and are
-ignored by git. Set `COGNITIVE_OS_RAW_TRACE=false` to disable raw prompt and
-candidate persistence in local traces.
-
-## Current Seed Benchmark Result
-
-```text
-raw_llm             Gate Accuracy 17.78%, Trace 0.00%
-system_prompt_only  Gate Accuracy 66.67%, Trace 0.00%
-keyword_guardrail   Gate Accuracy 17.78%, Trace 0.00%
-cognitive_os        Gate Accuracy 100.00%, Trace 100.00%
-```
-
-Protocol conformance target:
-
-```text
-CognitiveOS-v0 seed decisions x profiles -> 100.00% conformant
-```
-
-See:
+## Reference Docs
 
 - [docs/REFERENCE_ARCHITECTURE.md](docs/REFERENCE_ARCHITECTURE.md)
 - [docs/PROTOCOL.md](docs/PROTOCOL.md)
 - [docs/TRACE_PRIVACY.md](docs/TRACE_PRIVACY.md)
 - [docs/BASELINE_METHOD.md](docs/BASELINE_METHOD.md)
 
-## Claim
+## Claim Boundary
 
 Cognitive OS API v0.1.5 is a reference architecture for traceable LLM
 gate/profile/decision governance. Under the current CognitiveOS-v0 seed
 benchmark, it demonstrates deterministic gate decisions and auditable public
 decision envelopes.
 
-## Non-Claims
+It does not claim to be:
 
-- It is not a new foundation model.
-- It is not AGI.
-- It is not global LLM safety SOTA.
-- It does not claim universal harmful-response blocking.
-- It is not a complete safety guarantee.
-- It is not enterprise product ready.
+- a new foundation model
+- AGI
+- global LLM safety SOTA
+- universal harmful-response blocking
+- a complete safety guarantee
+- enterprise product ready
+
+## Next Polish
+
+The next implementation pass should improve the demo and evidence viewer so a
+reviewer can understand the decision protocol in under three minutes.
 
 ## License
 
