@@ -151,8 +151,10 @@ It does not claim to be:
 
 ## Next Polish
 
-The next implementation pass should improve the demo and evidence viewer so a
-reviewer can understand the decision protocol in under three minutes.
+The current demo surface is optimized for a three-minute reviewer walkthrough:
+same candidate, three profile policies, redacted public decision envelope, and
+protocol evidence. Next work should add more adversarial scenarios without
+expanding the claim boundary.
 
 ## License
 

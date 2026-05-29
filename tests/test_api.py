@@ -125,12 +125,19 @@ class ApiSmokeTests(unittest.TestCase):
         demo = self.client.get("/evidence/demo")
         self.assertEqual(demo.status_code, 200)
         demo_body = demo.json()
+        self.assertEqual(demo_body["story"]["title"], "Same candidate, three policy profiles, three gate outcomes.")
+        self.assertEqual(demo_body["prompt_label"], "unverified investor-forecast request")
+        self.assertEqual(len(demo_body["steps"]), 3)
+        self.assertGreaterEqual(len(demo_body["envelope_anatomy"]), 6)
+        self.assertIn("public_default", demo_body["privacy_boundary"])
         self.assertEqual(
             sorted(demo_body["profiles"]),
             ["guardian", "progress_max", "truth_first"],
         )
         self.assertNotIn("Tell investors", str(demo_body))
         for result in demo_body["profiles"].values():
+            self.assertIn("profile_policy", result)
+            self.assertIn("expected_reading", result)
             self.assertIn("decision_envelope", result)
             self.assertTrue(result["decision_envelope"]["redaction"]["redacted"])
             self.assertNotIn("raw", result["decision_envelope"])

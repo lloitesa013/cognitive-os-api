@@ -40,51 +40,66 @@ function renderOverview() {
 
 function renderGuidedDemo() {
   const metrics = state.summary.headline_metrics;
+  const story = state.demo.story;
+  const steps = state.demo.steps
+    .map((step, index) => `
+      <article class="demo-step">
+        <span>${index + 1}</span>
+        <h3>${step.label}</h3>
+        <p class="small">${step.detail}</p>
+      </article>`)
+    .join("");
   const profiles = Object.entries(state.demo.profiles)
     .map(([profile, result]) => `
       <article class="profile-card">
-        <p class="stat-label">${profile}</p>
+        <p class="stat-label">${result.profile_label || profile}</p>
         <h3>${result.gate}</h3>
+        <p>${result.expected_reading || ""}</p>
         <p class="small">${result.risk_tags.join(", ")}</p>
         <code>${result.decision_envelope.trace_id}</code>
       </article>`)
     .join("");
   document.querySelector("#guided").innerHTML = `
     <h2>3-Minute Demo</h2>
-    <div class="demo-grid">
-      <article class="demo-step">
-        <span>1</span>
-        <h3>Candidate Output Arrives</h3>
-        <p class="small">The upstream model response is represented by a prompt hash, not by raw private content.</p>
-        <code>${state.demo.prompt_hash}</code>
-      </article>
-      <article class="demo-step">
-        <span>2</span>
-        <h3>Profile Policy Gates It</h3>
-        <p class="small">Guardian, truth-first, and progress-max profiles produce different gate outcomes under the same canonical prompt.</p>
-      </article>
-      <article class="demo-step">
-        <span>3</span>
-        <h3>Evidence Is Exported</h3>
-        <p class="small">The result is a redacted decision envelope with trace id, gate, axis, reason, counterfactual, and risk tags.</p>
-      </article>
+    <div class="story-panel">
+      <p class="stat-label">${state.demo.prompt_label}</p>
+      <h3>${story.title}</h3>
+      <p>${story.problem}</p>
+      <p class="small">${story.protocol}</p>
+      <code>${state.demo.prompt_hash}</code>
     </div>
+    <div class="demo-grid">${steps}</div>
     <h3 class="section-kicker">Profile outcomes</h3>
     <div class="profile-grid">${profiles}</div>
+    <h3 class="section-kicker">Privacy boundary</h3>
+    <div class="grid-3">
+      <div class="callout"><p class="stat-label">Public default</p><p>${state.demo.privacy_boundary.public_default}</p></div>
+      <div class="callout"><p class="stat-label">Raw trace rule</p><p>${state.demo.privacy_boundary.raw_trace_rule}</p></div>
+      <div class="callout"><p class="stat-label">Public artifact</p><p>${state.demo.privacy_boundary.public_artifact}</p></div>
+    </div>
     <div class="completion-strip">
       <div><strong>${pct(metrics.gate_accuracy)}</strong><span>Gate accuracy</span></div>
       <div><strong>${pct(metrics.trace_completeness)}</strong><span>Trace completeness</span></div>
       <div><strong>${pct(metrics.conformance_pass_rate)}</strong><span>Conformance</span></div>
       <div><strong>${metrics.total_decisions}</strong><span>Decisions checked</span></div>
     </div>
-    <p class="small boundary-note">Completion signal: a reviewer can explain Cognitive OS as a decision verification protocol above LLMs without seeing raw prompt or candidate text.</p>`;
+    <p class="small boundary-note">Completion signal: ${story.completion_signal}</p>`;
 }
 
 function renderEnvelope() {
   const first = state.demo.profiles.guardian.decision_envelope;
+  const anatomyRows = state.demo.envelope_anatomy
+    .map((item) => `<tr><td>${item.field}</td><td>${item.meaning}</td></tr>`)
+    .join("");
   document.querySelector("#envelope").innerHTML = `
     <h2>Decision Envelope</h2>
     <p class="small">Redacted public envelope. Source and candidate content are represented only by hashes.</p>
+    <div class="table-wrap anatomy-table">
+      <table>
+        <thead><tr><th>Field</th><th>Meaning</th></tr></thead>
+        <tbody>${anatomyRows}</tbody>
+      </table>
+    </div>
     <pre>${escapeHtml(JSON.stringify(first, null, 2))}</pre>`;
 }
 

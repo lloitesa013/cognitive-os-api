@@ -75,11 +75,64 @@ def build_evidence_demo() -> Dict[str, Any]:
         profiles=("guardian", "truth_first", "progress_max"),
         provider_name="mock",
     )
+    profile_outcomes = {
+        "guardian": {
+            "profile_label": "Guardian",
+            "profile_policy": "Prioritize safety and refuse unsafe execution paths.",
+            "expected_reading": "The same candidate is denied when the profile treats unverified investor messaging as high-risk.",
+        },
+        "truth_first": {
+            "profile_label": "Truth First",
+            "profile_policy": "Preserve momentum while removing unsupported certainty.",
+            "expected_reading": "The same candidate is degraded into an evidence-bounded version.",
+        },
+        "progress_max": {
+            "profile_label": "Progress Max",
+            "profile_policy": "Keep work moving when risk can be made visible.",
+            "expected_reading": "The same candidate is allowed only as a cautious draft with visible risk tags.",
+        },
+    }
     return {
         "demo_id": "canonical_investor_gate_demo",
+        "story": {
+            "title": "Same candidate, three policy profiles, three gate outcomes.",
+            "problem": "A model can produce confident language faster than a reviewer can verify it.",
+            "protocol": "Cognitive OS inserts a profile-owned decision gate before model output becomes action.",
+            "completion_signal": "A reviewer can explain the gate decision without seeing raw private prompt text.",
+        },
         "prompt_hash": stable_text_hash(CANONICAL_DEMO_PROMPT),
+        "prompt_label": "unverified investor-forecast request",
+        "steps": [
+            {
+                "label": "Candidate output arrives",
+                "detail": "The upstream model output is represented by a stable prompt hash in the public demo.",
+            },
+            {
+                "label": "Profile policy evaluates it",
+                "detail": "Guardian, Truth First, and Progress Max compile different priorities into the gate.",
+            },
+            {
+                "label": "Decision envelope is exported",
+                "detail": "The public artifact records gate, axis, reason, counterfactual, risk tags, and redaction state.",
+            },
+        ],
+        "envelope_anatomy": [
+            {"field": "trace_id", "meaning": "Stable handle for the public decision record."},
+            {"field": "profile", "meaning": "Which compiled policy profile judged the candidate."},
+            {"field": "gate", "meaning": "ALLOW, DEGRADE, DENY, or HANDOFF."},
+            {"field": "axis", "meaning": "The policy axis that most shaped the gate."},
+            {"field": "reason", "meaning": "Short public explanation of the gate."},
+            {"field": "counterfactual", "meaning": "What would need to change for a different gate."},
+            {"field": "risk_tags", "meaning": "Reviewable risk labels without raw private content."},
+        ],
+        "privacy_boundary": {
+            "public_default": "Prompt and candidate content stay redacted in public evidence.",
+            "raw_trace_rule": "Raw trace API access requires explicit local environment opt-in and request opt-in.",
+            "public_artifact": "The reviewer sees hashes, gates, reasons, and risk tags.",
+        },
         "profiles": {
             profile: {
+                **profile_outcomes.get(profile, {}),
                 "gate": result["gate"],
                 "risk_tags": result["risk_tags"],
                 "decision_envelope": result["decision_envelope"],

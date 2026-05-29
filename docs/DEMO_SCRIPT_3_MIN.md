@@ -23,12 +23,15 @@ profile-specific CCP, analyzes risk, decides `ALLOW`, `DEGRADE`, `DENY`, or
 ## 1:45-2:30 - UI Walkthrough
 
 Open `/ui`. Start on Overview, then open `3-Minute Demo`. Show the sequence:
-candidate output arrives as a hash, profile policy gates it, and a redacted
-Decision Envelope is exported. Point to the four headline numbers: Gate Accuracy
-100.00%, Trace Completeness 100.00%, Conformance Pass Rate 100.00%, and Total
-Decisions 90. Then open Decision Envelope to show the public redacted envelope,
-Conformance to show protocol pass rate, and Baseline Comparison to show why gate
-plus trace is the differentiator.
+the candidate request appears as a hash, three profile policies gate the same
+candidate differently, and the public artifact stays redacted by default. Point
+to the four headline numbers: Gate Accuracy 100.00%, Trace Completeness
+100.00%, Conformance Pass Rate 100.00%, and Total Decisions 90.
+
+Then open Decision Envelope. Use the anatomy table first, then the JSON payload:
+`trace_id`, `profile`, `gate`, `axis`, `reason`, `counterfactual`, and
+`risk_tags` are the reviewable public fields. Close by opening Conformance and
+Baseline Comparison to show why gate plus trace is the differentiator.
 
 ## 2:30-3:00 - Close
 
