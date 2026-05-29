@@ -107,10 +107,12 @@ class ApiSmokeTests(unittest.TestCase):
         ui = self.client.get("/ui")
         self.assertEqual(ui.status_code, 200)
         self.assertIn("Evidence Viewer", ui.text)
+        self.assertIn("3-Minute Demo", ui.text)
 
         ui = self.client.get("/ui/")
         self.assertEqual(ui.status_code, 200)
         self.assertIn("Evidence Viewer", ui.text)
+        self.assertIn("3-Minute Demo", ui.text)
 
         summary = self.client.get("/evidence/summary")
         self.assertEqual(summary.status_code, 200)
