@@ -166,6 +166,97 @@ th {
   gap: 16px;
 }
 
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.demo-step,
+.profile-card {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  min-height: 156px;
+}
+
+.demo-step span {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}
+
+.demo-step h3,
+.profile-card h3 {
+  margin: 14px 0 8px;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.profile-card h3 {
+  color: var(--accent);
+  font-size: 1.45rem;
+}
+
+.profile-card code,
+.demo-step code {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  margin-top: 10px;
+  color: var(--accent-2);
+  font-size: 0.82rem;
+}
+
+.section-kicker {
+  margin-top: 22px;
+}
+
+.completion-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.completion-strip div {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px;
+  background: #fff;
+}
+
+.completion-strip strong,
+.completion-strip span {
+  display: block;
+}
+
+.completion-strip strong {
+  color: var(--accent);
+  font-size: 1.35rem;
+}
+
+.completion-strip span {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.boundary-note {
+  margin-top: 16px;
+}
+
 .callout,
 .table-wrap,
 pre {
@@ -221,7 +312,10 @@ pre {
 
 @media (max-width: 860px) {
   .hero,
-  .grid-2 {
+  .grid-2,
+  .demo-grid,
+  .profile-grid,
+  .completion-strip {
     grid-template-columns: 1fr;
   }
 
