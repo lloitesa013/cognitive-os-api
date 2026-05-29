@@ -13,7 +13,7 @@ degraded, denied, or handed off before it becomes action or public output.
 
 ![Cognitive OS evidence viewer](docs/assets/ui-overview.png)
 
-## What It Verifies
+## 30-Second Evidence
 
 - Profile-to-policy compilation.
 - Candidate-output review before action.
@@ -21,6 +21,10 @@ degraded, denied, or handed off before it becomes action or public output.
 - Redacted public decision envelopes.
 - Local raw trace handling with explicit opt-in.
 - Seed benchmark and protocol conformance behavior.
+
+Public evidence endpoints: `/evidence/summary`, `/evidence/demo`, `/evidence/report`, and `/evidence/export`.
+
+![Cognitive OS adversarial evidence](docs/assets/ui-adversarial-evidence.png)
 
 ## Current Evidence Snapshot
 
@@ -30,6 +34,8 @@ Trace Completeness: 100.00%
 Conformance Pass Rate: 100.00%
 Total Decisions: 90
 ```
+
+Adversarial evidence pack: 6 scenarios, 18 decisions, gate accuracy 100.00%, trace completeness 100.00%, redaction pass rate 100.00%.
 
 Current seed benchmark:
 
@@ -86,6 +92,7 @@ http://127.0.0.1:8000/ui/
 - `GET /evidence/summary`
 - `GET /evidence/demo`
 - `GET /evidence/export`
+- `GET /evidence/report`
 - `GET /ui`
 - `GET /ui/`
 
