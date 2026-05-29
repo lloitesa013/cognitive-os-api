@@ -10,6 +10,7 @@ from .compiler import compile_profile
 from .evidence import (
     build_evidence_demo,
     build_evidence_export,
+    build_evidence_report,
     build_evidence_summary,
 )
 from .profiles import list_default_profiles
@@ -157,6 +158,10 @@ def create_app(trace_store: Optional[InMemoryTraceStore] = None):
     @app.get("/evidence/demo")
     def evidence_demo() -> Dict[str, Any]:
         return build_evidence_demo()
+
+    @app.get("/evidence/report")
+    def evidence_report() -> Dict[str, Any]:
+        return build_evidence_report()
 
     @app.get("/evidence/export")
     def evidence_export() -> Dict[str, Any]:

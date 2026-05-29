@@ -1,5 +1,6 @@
 import unittest
 
+from cognitive_os.benchmarks.cognitiveos_v0.run_adversarial import run_adversarial_benchmark
 from cognitive_os.benchmarks.cognitiveos_v0.run_benchmark import run_benchmark
 from cognitive_os.benchmarks.cognitiveos_v0.run_baselines import (
     run_baseline_comparison,
@@ -38,6 +39,20 @@ class BenchmarkTests(unittest.TestCase):
         self.assertEqual(metrics["protocol_version"], "cognitive-gate-evidence-v0.1")
         self.assertEqual(metrics["conformance_pass_rate"], 1.0)
         self.assertEqual(metrics["failure_counts"], {})
+
+    def test_adversarial_pack_reports_redacted_measurable_evidence(self):
+        metrics = run_adversarial_benchmark()
+        self.assertEqual(metrics["scenario_count"], 6)
+        self.assertEqual(metrics["profile_count"], 3)
+        self.assertEqual(metrics["total_decisions"], 18)
+        self.assertEqual(metrics["gate_accuracy"], 1.0)
+        self.assertEqual(metrics["trace_completeness"], 1.0)
+        self.assertEqual(metrics["redaction_pass_rate"], 1.0)
+        self.assertGreaterEqual(metrics["profile_separation_rate"], 0.6)
+        for detail in metrics["details"]:
+            self.assertIn("prompt_hash", detail)
+            self.assertNotIn("prompt", detail)
+            self.assertNotIn("candidate", detail)
 
 
 if __name__ == "__main__":
