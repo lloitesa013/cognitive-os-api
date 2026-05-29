@@ -166,6 +166,33 @@ th {
   gap: 16px;
 }
 
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.story-panel {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 14px;
+}
+
+.story-panel h3 {
+  margin: 6px 0 10px;
+}
+
+.story-panel code {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  margin-top: 12px;
+  color: var(--accent-2);
+  font-size: 0.88rem;
+}
+
 .demo-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -208,6 +235,11 @@ th {
 .profile-card h3 {
   color: var(--accent);
   font-size: 1.45rem;
+}
+
+.profile-card p:not(.stat-label):not(.small) {
+  margin: 0 0 8px;
+  line-height: 1.45;
 }
 
 .profile-card code,
@@ -265,6 +297,10 @@ pre {
   border-radius: 8px;
 }
 
+.anatomy-table {
+  margin-bottom: 14px;
+}
+
 .callout {
   padding: 16px;
 }
@@ -313,6 +349,7 @@ pre {
 @media (max-width: 860px) {
   .hero,
   .grid-2,
+  .grid-3,
   .demo-grid,
   .profile-grid,
   .completion-strip {
