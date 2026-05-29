@@ -1,6 +1,7 @@
 const state = {
   summary: null,
   demo: null,
+  report: null,
   exportPayload: null,
 };
 
@@ -186,6 +187,63 @@ function renderViewer() {
     </div>`;
 }
 
+function renderAdversarial() {
+  const a = state.report.adversarial;
+  const metricCards = `
+    <div class="grid-4">
+      <div class="callout"><p class="stat-label">Scenarios</p><h3>${a.scenario_count}</h3></div>
+      <div class="callout"><p class="stat-label">Gate Accuracy</p><h3>${pct(a.gate_accuracy)}</h3></div>
+      <div class="callout"><p class="stat-label">Trace Complete</p><h3>${pct(a.trace_completeness)}</h3></div>
+      <div class="callout"><p class="stat-label">Redaction Pass</p><h3>${pct(a.redaction_pass_rate)}</h3></div>
+    </div>`;
+  const categoryRows = Object.entries(a.category_summary)
+    .map(([category, row]) => `
+      <tr>
+        <td>${category}</td>
+        <td>${row.scenario_count}</td>
+        <td>${row.decision_count}</td>
+        <td>${pct(row.gate_accuracy)}</td>
+      </tr>`)
+    .join("");
+  const scenarioRows = a.details
+    .map((row) => `
+      <tr>
+        <td>${row.scenario_id}</td>
+        <td>${row.category}</td>
+        <td><code>${row.prompt_hash}</code></td>
+        <td>${gateList(row.actual_gates)}</td>
+        <td>${passList(row.redaction_pass_by_profile)}</td>
+      </tr>`)
+    .join("");
+  const standards = state.report.reviewer_standard
+    .map((item) => `
+      <article class="standard-card">
+        <p class="stat-label">${item.principle}</p>
+        <p>${item.evidence}</p>
+      </article>`)
+    .join("");
+  document.querySelector("#adversarial").innerHTML = `
+    <h2>Adversarial Evidence</h2>
+    <p class="small">${a.public_export_rule}</p>
+    ${metricCards}
+    <h3 class="section-kicker">Reviewer standard</h3>
+    <div class="standard-grid">${standards}</div>
+    <h3 class="section-kicker">Category summary</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Category</th><th>Scenarios</th><th>Decisions</th><th>Gate Accuracy</th></tr></thead>
+        <tbody>${categoryRows}</tbody>
+      </table>
+    </div>
+    <h3 class="section-kicker">Scenario evidence</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ID</th><th>Category</th><th>Prompt Hash</th><th>Gates</th><th>Redaction</th></tr></thead>
+        <tbody>${scenarioRows}</tbody>
+      </table>
+    </div>`;
+}
+
 function renderExport() {
   document.querySelector("#export").innerHTML = `
     <h2>Evidence Export</h2>
@@ -219,6 +277,22 @@ function tabFromHash() {
   return window.location.hash.replace("#", "") || "overview";
 }
 
+function gateList(gates) {
+  return Object.entries(gates)
+    .map(([profile, gate]) => `<span class="gate">${profile}: ${gate}</span>`)
+    .join(" ");
+}
+
+function passList(values) {
+  return Object.entries(values)
+    .map(([profile, pass]) => {
+      const cls = pass ? "pass-pill" : "fail-pill";
+      const label = pass ? "pass" : "fail";
+      return `<span class="${cls}">${profile}: ${label}</span>`;
+    })
+    .join(" ");
+}
+
 function escapeHtml(value) {
   return value
     .replaceAll("&", "&amp;")
@@ -228,9 +302,10 @@ function escapeHtml(value) {
 
 async function main() {
   wireTabs();
-  [state.summary, state.demo, state.exportPayload] = await Promise.all([
+  [state.summary, state.demo, state.report, state.exportPayload] = await Promise.all([
     fetchJson("/evidence/summary"),
     fetchJson("/evidence/demo"),
+    fetchJson("/evidence/report"),
     fetchJson("/evidence/export"),
   ]);
   setHeadlineMetrics(state.summary);
@@ -243,6 +318,7 @@ async function main() {
   renderConformance();
   renderBaseline();
   renderViewer();
+  renderAdversarial();
   renderExport();
   activateTab(tabFromHash(), false);
 }

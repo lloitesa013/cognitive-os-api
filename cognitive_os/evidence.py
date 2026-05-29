@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Any, Dict
 
 from .benchmarks.cognitiveos_v0.run_baselines import run_baseline_comparison
+from .benchmarks.cognitiveos_v0.run_adversarial import run_adversarial_benchmark
 from .benchmarks.cognitiveos_v0.run_benchmark import run_benchmark
 from .benchmarks.cognitiveos_v0.run_conformance import run_conformance
 from .protocol import stable_text_hash
@@ -21,6 +22,7 @@ PRESENTATION_LABEL = (
 def build_evidence_summary() -> Dict[str, Any]:
     benchmark = run_benchmark()
     baselines = run_baseline_comparison()
+    adversarial = run_adversarial_benchmark()
     conformance = run_conformance()
     baseline_runners = baselines["runners"]
     return {
@@ -42,6 +44,8 @@ def build_evidence_summary() -> Dict[str, Any]:
             "trace_completeness": benchmark["trace_completeness"],
             "conformance_pass_rate": conformance["conformance_pass_rate"],
             "total_decisions": conformance["total"],
+            "adversarial_gate_accuracy": adversarial["gate_accuracy"],
+            "adversarial_redaction_pass_rate": adversarial["redaction_pass_rate"],
         },
         "benchmark": {
             "scenario_count": benchmark["scenario_count"],
@@ -58,6 +62,16 @@ def build_evidence_summary() -> Dict[str, Any]:
                 "false_deny_rate": metrics["false_deny_rate"],
             }
             for name, metrics in baseline_runners.items()
+        },
+        "adversarial": {
+            "scenario_count": adversarial["scenario_count"],
+            "profile_count": adversarial["profile_count"],
+            "total_decisions": adversarial["total_decisions"],
+            "gate_accuracy": adversarial["gate_accuracy"],
+            "trace_completeness": adversarial["trace_completeness"],
+            "redaction_pass_rate": adversarial["redaction_pass_rate"],
+            "profile_separation_rate": adversarial["profile_separation_rate"],
+            "category_summary": adversarial["category_summary"],
         },
         "conformance": {
             "benchmark_version": conformance["benchmark_version"],
@@ -142,6 +156,44 @@ def build_evidence_demo() -> Dict[str, Any]:
     }
 
 
+def build_evidence_report() -> Dict[str, Any]:
+    """Build the reviewer-facing evidence report without raw private content."""
+
+    summary = build_evidence_summary()
+    adversarial = run_adversarial_benchmark()
+    return {
+        "version": __version__,
+        "protocol_version": PROTOCOL_VERSION,
+        "title": "Cognitive OS public evidence report",
+        "thesis": "A profile-owned gate can make LLM actions traceable, measurable, and bounded.",
+        "reviewer_standard": [
+            {
+                "principle": "It works",
+                "evidence": "The demo API returns profile-specific gates and redacted decision envelopes.",
+            },
+            {
+                "principle": "It is reproducible",
+                "evidence": "Seed benchmark fixtures, expected gates, and runner scripts are checked into the repository.",
+            },
+            {
+                "principle": "It is measurable",
+                "evidence": "Gate accuracy, trace completeness, conformance pass rate, and redaction pass rate are reported.",
+            },
+            {
+                "principle": "It is understandable",
+                "evidence": "The UI separates overview, demo, envelope, benchmarks, baselines, and export views.",
+            },
+            {
+                "principle": "It does not overclaim",
+                "evidence": "The public report includes explicit non-claims and scoped benchmark boundaries.",
+            },
+        ],
+        "claim_boundary": summary["positioning"]["not_claims"],
+        "headline_metrics": summary["headline_metrics"],
+        "adversarial": adversarial,
+    }
+
+
 def build_evidence_export() -> Dict[str, Any]:
     summary = build_evidence_summary()
     return {
@@ -149,7 +201,9 @@ def build_evidence_export() -> Dict[str, Any]:
         "protocol_version": PROTOCOL_VERSION,
         "summary": summary,
         "demo": build_evidence_demo(),
+        "report": build_evidence_report(),
         "benchmark": run_benchmark(),
+        "adversarial": run_adversarial_benchmark(),
         "baseline": run_baseline_comparison(),
         "conformance": run_conformance(),
     }

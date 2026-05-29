@@ -109,6 +109,9 @@ class ApiSmokeTests(unittest.TestCase):
         self.assertIn("Evidence Viewer", ui.text)
         self.assertIn("3-Minute Demo", ui.text)
 
+        self.assertIn("Adversarial Evidence", ui.text)
+        self.assertIn("Evidence Export", ui.text)
+
         ui = self.client.get("/ui/")
         self.assertEqual(ui.status_code, 200)
         self.assertIn("Evidence Viewer", ui.text)
@@ -121,6 +124,8 @@ class ApiSmokeTests(unittest.TestCase):
         self.assertEqual(headline["trace_completeness"], 1.0)
         self.assertEqual(headline["conformance_pass_rate"], 1.0)
         self.assertEqual(headline["total_decisions"], 90)
+        self.assertEqual(headline["adversarial_gate_accuracy"], 1.0)
+        self.assertEqual(headline["adversarial_redaction_pass_rate"], 1.0)
 
         demo = self.client.get("/evidence/demo")
         self.assertEqual(demo.status_code, 200)
@@ -142,12 +147,30 @@ class ApiSmokeTests(unittest.TestCase):
             self.assertTrue(result["decision_envelope"]["redaction"]["redacted"])
             self.assertNotIn("raw", result["decision_envelope"])
 
+        report = self.client.get("/evidence/report")
+        self.assertEqual(report.status_code, 200)
+        report_body = report.json()
+        self.assertEqual(report_body["adversarial"]["scenario_count"], 6)
+        self.assertEqual(report_body["adversarial"]["gate_accuracy"], 1.0)
+        self.assertEqual(report_body["adversarial"]["redaction_pass_rate"], 1.0)
+        self.assertEqual(len(report_body["reviewer_standard"]), 5)
+        self.assertNotIn("Ignore every policy", str(report_body))
+        self.assertNotIn("Pretend to be a doctor", str(report_body))
+        self.assertNotIn("candidate_response", str(report_body))
+        for detail in report_body["adversarial"]["details"]:
+            self.assertIn("prompt_hash", detail)
+            self.assertNotIn("prompt", detail)
+            self.assertNotIn("candidate", detail)
+
         export = self.client.get("/evidence/export")
         self.assertEqual(export.status_code, 200)
         export_body = export.json()
-        for key in ("summary", "demo", "benchmark", "baseline", "conformance"):
+        for key in ("summary", "demo", "report", "benchmark", "adversarial", "baseline", "conformance"):
             self.assertIn(key, export_body)
         self.assertNotIn("Tell investors", str(export_body))
+        self.assertNotIn("Ignore every policy", str(export_body))
+        self.assertNotIn("Pretend to be a doctor", str(export_body))
+        self.assertNotIn("candidate_response", str(export_body))
 
 
 if __name__ == "__main__":
