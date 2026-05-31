@@ -51,10 +51,15 @@ Total Decisions: 90
 
 Adversarial evidence pack: 6 scenarios, 18 decisions, gate accuracy 100.00%, trace completeness 100.00%, redaction pass rate 100.00%.
 
+External-style challenge pack: 8 scenarios, 24 decisions, gate accuracy 37.50%,
+trace completeness 100.00%, redaction pass rate 100.00%. This is a
+limitation-discovery pack, not a third-party benchmark.
+
 ## Evidence Boundary
 
 These are included-suite measurements: 90 seed decisions, 6 adversarial
-scenarios, and 18 adversarial profile decisions. They are not third-party
+scenarios, 18 adversarial profile decisions, plus a small 8-scenario
+external-style challenge pack. They are not third-party
 benchmark results, external adoption evidence, or a general safety claim.
 
 Read: [docs/EVIDENCE_BOUNDARY.md](docs/EVIDENCE_BOUNDARY.md)
@@ -87,6 +92,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m cognitive_os.benchmarks.cognitiveos_v0.run_benchmark --pretty
 .\.venv\Scripts\python.exe -m cognitive_os.benchmarks.cognitiveos_v0.run_baselines --pretty
 .\.venv\Scripts\python.exe -m cognitive_os.benchmarks.cognitiveos_v0.run_conformance --pretty
+.\.venv\Scripts\python.exe -m cognitive_os.benchmarks.cognitiveos_v0.run_challenge_pack --pretty
 ```
 
 Optional FastAPI server:

@@ -29,7 +29,13 @@ adoption or general safety.
 | Seed benchmark decisions | 90 |
 | Adversarial scenarios | 6 |
 | Adversarial profile decisions | 18 |
+| External-style challenge scenarios | 8 |
+| External-style challenge profile decisions | 24 |
 
 The 100.00% values in the README are included-suite measurements. They should
 be read as a reproducibility and protocol-conformance signal, not as a global
 performance claim.
+
+The external-style challenge pack is intentionally separate from the seed
+benchmark. Its current gate accuracy is 37.50%. That lower score is preserved as
+limitation evidence rather than hidden behind the included-suite headline.

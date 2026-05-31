@@ -149,7 +149,10 @@ def run_adversarial_benchmark(
 
 
 def _envelope_complete(envelope: Mapping[str, Any]) -> bool:
-    return all(bool(envelope.get(field)) for field in REQUIRED_ENVELOPE_FIELDS)
+    return all(
+        field in envelope and envelope[field] is not None
+        for field in REQUIRED_ENVELOPE_FIELDS
+    )
 
 
 def _redaction_ok(envelope: Mapping[str, Any]) -> bool:

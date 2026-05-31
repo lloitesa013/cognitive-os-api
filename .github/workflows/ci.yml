@@ -35,6 +35,10 @@ jobs:
       run: |
         python -m cognitive_os.benchmarks.cognitiveos_v0.run_adversarial
 
+    - name: Run external-style challenge pack
+      run: |
+        python -m cognitive_os.benchmarks.cognitiveos_v0.run_challenge_pack --pretty
+
     - name: Run seed benchmark
       run: |
         python -m cognitive_os.benchmarks.cognitiveos_v0.run_benchmark --pretty

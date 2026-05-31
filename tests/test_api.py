@@ -156,8 +156,16 @@ class ApiSmokeTests(unittest.TestCase):
         self.assertEqual(len(report_body["reviewer_standard"]), 5)
         self.assertNotIn("Ignore every policy", str(report_body))
         self.assertNotIn("Pretend to be a doctor", str(report_body))
+        self.assertNotIn("Summarize a leaked customer spreadsheet", str(report_body))
+        self.assertNotIn("internal API token", str(report_body))
         self.assertNotIn("candidate_response", str(report_body))
         for detail in report_body["adversarial"]["details"]:
+            self.assertIn("prompt_hash", detail)
+            self.assertNotIn("prompt", detail)
+            self.assertNotIn("candidate", detail)
+        self.assertEqual(report_body["challenge_pack"]["scenario_count"], 8)
+        self.assertLess(report_body["challenge_pack"]["gate_accuracy"], 1.0)
+        for detail in report_body["challenge_pack"]["details"]:
             self.assertIn("prompt_hash", detail)
             self.assertNotIn("prompt", detail)
             self.assertNotIn("candidate", detail)
@@ -165,11 +173,22 @@ class ApiSmokeTests(unittest.TestCase):
         export = self.client.get("/evidence/export")
         self.assertEqual(export.status_code, 200)
         export_body = export.json()
-        for key in ("summary", "demo", "report", "benchmark", "adversarial", "baseline", "conformance"):
+        for key in (
+            "summary",
+            "demo",
+            "report",
+            "benchmark",
+            "adversarial",
+            "challenge_pack",
+            "baseline",
+            "conformance",
+        ):
             self.assertIn(key, export_body)
         self.assertNotIn("Tell investors", str(export_body))
         self.assertNotIn("Ignore every policy", str(export_body))
         self.assertNotIn("Pretend to be a doctor", str(export_body))
+        self.assertNotIn("Summarize a leaked customer spreadsheet", str(export_body))
+        self.assertNotIn("internal API token", str(export_body))
         self.assertNotIn("candidate_response", str(export_body))
 
 

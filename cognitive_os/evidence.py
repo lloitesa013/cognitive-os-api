@@ -7,6 +7,7 @@ from typing import Any, Dict
 from .benchmarks.cognitiveos_v0.run_baselines import run_baseline_comparison
 from .benchmarks.cognitiveos_v0.run_adversarial import run_adversarial_benchmark
 from .benchmarks.cognitiveos_v0.run_benchmark import run_benchmark
+from .benchmarks.cognitiveos_v0.run_challenge_pack import run_challenge_pack
 from .benchmarks.cognitiveos_v0.run_conformance import run_conformance
 from .protocol import stable_text_hash
 from .runtime import compare_profiles
@@ -23,6 +24,7 @@ def build_evidence_summary() -> Dict[str, Any]:
     benchmark = run_benchmark()
     baselines = run_baseline_comparison()
     adversarial = run_adversarial_benchmark()
+    challenge = run_challenge_pack()
     conformance = run_conformance()
     baseline_runners = baselines["runners"]
     return {
@@ -72,6 +74,18 @@ def build_evidence_summary() -> Dict[str, Any]:
             "redaction_pass_rate": adversarial["redaction_pass_rate"],
             "profile_separation_rate": adversarial["profile_separation_rate"],
             "category_summary": adversarial["category_summary"],
+        },
+        "challenge_pack": {
+            "benchmark_type": challenge["benchmark_type"],
+            "scenario_count": challenge["scenario_count"],
+            "profile_count": challenge["profile_count"],
+            "total_decisions": challenge["total_decisions"],
+            "gate_accuracy": challenge["gate_accuracy"],
+            "trace_completeness": challenge["trace_completeness"],
+            "redaction_pass_rate": challenge["redaction_pass_rate"],
+            "profile_separation_rate": challenge["profile_separation_rate"],
+            "third_party_benchmark": challenge["third_party_benchmark"],
+            "interpretation": challenge["interpretation"],
         },
         "conformance": {
             "benchmark_version": conformance["benchmark_version"],
@@ -161,6 +175,7 @@ def build_evidence_report() -> Dict[str, Any]:
 
     summary = build_evidence_summary()
     adversarial = run_adversarial_benchmark()
+    challenge = run_challenge_pack()
     return {
         "version": __version__,
         "protocol_version": PROTOCOL_VERSION,
@@ -191,6 +206,7 @@ def build_evidence_report() -> Dict[str, Any]:
         "claim_boundary": summary["positioning"]["not_claims"],
         "headline_metrics": summary["headline_metrics"],
         "adversarial": adversarial,
+        "challenge_pack": challenge,
     }
 
 
@@ -204,6 +220,7 @@ def build_evidence_export() -> Dict[str, Any]:
         "report": build_evidence_report(),
         "benchmark": run_benchmark(),
         "adversarial": run_adversarial_benchmark(),
+        "challenge_pack": run_challenge_pack(),
         "baseline": run_baseline_comparison(),
         "conformance": run_conformance(),
     }

@@ -5,6 +5,7 @@ from cognitive_os.benchmarks.cognitiveos_v0.run_benchmark import run_benchmark
 from cognitive_os.benchmarks.cognitiveos_v0.run_baselines import (
     run_baseline_comparison,
 )
+from cognitive_os.benchmarks.cognitiveos_v0.run_challenge_pack import run_challenge_pack
 from cognitive_os.benchmarks.cognitiveos_v0.run_conformance import run_conformance
 
 
@@ -49,6 +50,21 @@ class BenchmarkTests(unittest.TestCase):
         self.assertEqual(metrics["trace_completeness"], 1.0)
         self.assertEqual(metrics["redaction_pass_rate"], 1.0)
         self.assertGreaterEqual(metrics["profile_separation_rate"], 0.6)
+        for detail in metrics["details"]:
+            self.assertIn("prompt_hash", detail)
+            self.assertNotIn("prompt", detail)
+            self.assertNotIn("candidate", detail)
+
+    def test_challenge_pack_reports_non_perfect_external_style_evidence(self):
+        metrics = run_challenge_pack()
+        self.assertEqual(metrics["benchmark_type"], "external_style_challenge_pack")
+        self.assertFalse(metrics["third_party_benchmark"])
+        self.assertEqual(metrics["scenario_count"], 8)
+        self.assertEqual(metrics["profile_count"], 3)
+        self.assertEqual(metrics["total_decisions"], 24)
+        self.assertLess(metrics["gate_accuracy"], 1.0)
+        self.assertEqual(metrics["trace_completeness"], 1.0)
+        self.assertEqual(metrics["redaction_pass_rate"], 1.0)
         for detail in metrics["details"]:
             self.assertIn("prompt_hash", detail)
             self.assertNotIn("prompt", detail)
