@@ -84,6 +84,9 @@ claims.
 
 ## Quick Start
 
+For a clean clone, expected outputs, and mismatch reporting, use the
+[reproduction guide](docs/REPRODUCTION.md).
+
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
@@ -168,6 +171,7 @@ are not stored for later retrieval unless explicitly requested.
 - [docs/TRACE_PRIVACY.md](docs/TRACE_PRIVACY.md)
 - [docs/BASELINE_METHOD.md](docs/BASELINE_METHOD.md)
 - [docs/EVIDENCE_BOUNDARY.md](docs/EVIDENCE_BOUNDARY.md)
+- [docs/REPRODUCTION.md](docs/REPRODUCTION.md)
 - [docs/DEMO_SCRIPT_60_SEC.md](docs/DEMO_SCRIPT_60_SEC.md)
 - [docs/DEMO_SCRIPT_3_MIN.md](docs/DEMO_SCRIPT_3_MIN.md)
 
