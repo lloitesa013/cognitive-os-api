@@ -51,6 +51,14 @@ Total Decisions: 90
 
 Adversarial evidence pack: 6 scenarios, 18 decisions, gate accuracy 100.00%, trace completeness 100.00%, redaction pass rate 100.00%.
 
+## Evidence Boundary
+
+These are included-suite measurements: 90 seed decisions, 6 adversarial
+scenarios, and 18 adversarial profile decisions. They are not third-party
+benchmark results, external adoption evidence, or a general safety claim.
+
+Read: [docs/EVIDENCE_BOUNDARY.md](docs/EVIDENCE_BOUNDARY.md)
+
 Current seed benchmark:
 
 ```text
@@ -134,12 +142,12 @@ candidate persistence in local traces.
 ## OpenAI Adapter
 
 Set `OPENAI_API_KEY` and choose provider `openai` or `openai:<model>`.
-`OPENAI_MODEL` defaults to `gpt-5.2` when no model suffix is supplied, but it can
-be changed depending on account access and available models.
+Set `OPENAI_MODEL` explicitly when using provider `openai` without a model
+suffix.
 
 ```powershell
 $env:OPENAI_API_KEY="..."
-$env:OPENAI_MODEL="gpt-5.2"
+$env:OPENAI_MODEL="<available-model>"
 $env:OPENAI_STORE="false"
 $env:OPENAI_TIMEOUT="60"
 ```
@@ -153,6 +161,7 @@ are not stored for later retrieval unless explicitly requested.
 - [docs/PROTOCOL.md](docs/PROTOCOL.md)
 - [docs/TRACE_PRIVACY.md](docs/TRACE_PRIVACY.md)
 - [docs/BASELINE_METHOD.md](docs/BASELINE_METHOD.md)
+- [docs/EVIDENCE_BOUNDARY.md](docs/EVIDENCE_BOUNDARY.md)
 - [docs/DEMO_SCRIPT_60_SEC.md](docs/DEMO_SCRIPT_60_SEC.md)
 - [docs/DEMO_SCRIPT_3_MIN.md](docs/DEMO_SCRIPT_3_MIN.md)
 

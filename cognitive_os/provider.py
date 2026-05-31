@@ -54,7 +54,12 @@ class OpenAIProvider(Provider):
                 "OPENAI_API_KEY is required when provider='openai'."
             )
 
-        model = self.model or os.environ.get("OPENAI_MODEL", "gpt-5.2")
+        model = self.model or os.environ.get("OPENAI_MODEL")
+        if not model:
+            raise ProviderConfigurationError(
+                "OPENAI_MODEL or provider='openai:<model>' is required when "
+                "using the OpenAI provider."
+            )
         store = self.store
         if store is None:
             store = _env_bool("OPENAI_STORE", False)

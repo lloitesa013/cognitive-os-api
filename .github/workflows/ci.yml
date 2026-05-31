@@ -29,7 +29,7 @@ jobs:
 
     - name: Run API smoke and benchmark tests
       run: |
-        python -m unittest -v tests.test_api tests.test_benchmark
+        python -m unittest -v tests.test_api tests.test_benchmark tests.test_provider
 
     - name: Run adversarial evidence report
       run: |
