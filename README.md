@@ -26,6 +26,18 @@ Public evidence endpoints: `/evidence/summary`, `/evidence/demo`, `/evidence/rep
 
 ![Cognitive OS adversarial evidence](docs/assets/ui-adversarial-evidence.png)
 
+## 60-Second Demo
+
+Use this as the front-door walkthrough: candidate output becomes a
+profile-specific gate, a redacted decision envelope, and a measurable evidence
+report.
+
+![Cognitive OS 60-second demo storyboard](docs/assets/demo-60-sec-storyboard.svg)
+
+- Script: [docs/DEMO_SCRIPT_60_SEC.md](docs/DEMO_SCRIPT_60_SEC.md)
+- Longer walkthrough: [docs/DEMO_SCRIPT_3_MIN.md](docs/DEMO_SCRIPT_3_MIN.md)
+- Live local surface: start the FastAPI server and open `/ui`.
+
 ## Current Evidence Snapshot
 
 ```text
@@ -139,6 +151,8 @@ are not stored for later retrieval unless explicitly requested.
 - [docs/PROTOCOL.md](docs/PROTOCOL.md)
 - [docs/TRACE_PRIVACY.md](docs/TRACE_PRIVACY.md)
 - [docs/BASELINE_METHOD.md](docs/BASELINE_METHOD.md)
+- [docs/DEMO_SCRIPT_60_SEC.md](docs/DEMO_SCRIPT_60_SEC.md)
+- [docs/DEMO_SCRIPT_3_MIN.md](docs/DEMO_SCRIPT_3_MIN.md)
 
 ## Claim Boundary
 
