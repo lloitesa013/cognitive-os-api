@@ -42,18 +42,12 @@ report.
 
 ## Current Evidence Snapshot
 
-```text
-Gate Accuracy: 100.00%
-Trace Completeness: 100.00%
-Conformance Pass Rate: 100.00%
-Total Decisions: 90
-```
-
-Adversarial evidence pack: 6 scenarios, 18 decisions, gate accuracy 100.00%, trace completeness 100.00%, redaction pass rate 100.00%.
-
-External-style challenge pack: 8 scenarios, 24 decisions, gate accuracy 37.50%,
-trace completeness 100.00%, redaction pass rate 100.00%. This is a
-limitation-discovery pack, not a third-party benchmark.
+| Evidence surface | Size | Gate accuracy | Trace / redaction | Boundary |
+| --- | ---: | ---: | --- | --- |
+| Seed benchmark | 90 decisions | 100.00% | Trace completeness 100.00% | Included suite |
+| Protocol conformance | 90 decisions | N/A | Conformance pass rate 100.00% | Included suite |
+| Adversarial evidence pack | 6 scenarios / 18 decisions | 100.00% | Trace completeness 100.00%; redaction pass 100.00% | Included suite |
+| External-style challenge pack | 8 scenarios / 24 decisions | 37.50% | Trace completeness 100.00%; redaction pass 100.00% | Limitation-discovery pack, not a third-party benchmark |
 
 ## Evidence Boundary
 
