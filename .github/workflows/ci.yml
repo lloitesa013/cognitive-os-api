@@ -1,0 +1,48 @@
+name: Cognitive OS Verification CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  verify-cognitive-os:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.7'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install -r requirements-dev.txt
+
+    - name: Run API smoke and benchmark tests
+      run: |
+        python -m unittest -v tests.test_api tests.test_benchmark
+
+    - name: Run adversarial evidence report
+      run: |
+        python -m cognitive_os.benchmarks.cognitiveos_v0.run_adversarial
+
+    - name: Run seed benchmark
+      run: |
+        python -m cognitive_os.benchmarks.cognitiveos_v0.run_benchmark --pretty
+
+    - name: Run baseline comparison
+      run: |
+        python -m cognitive_os.benchmarks.cognitiveos_v0.run_baselines --pretty
+
+    - name: Run protocol conformance
+      run: |
+        python -m cognitive_os.benchmarks.cognitiveos_v0.run_conformance --pretty
