@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Cognitive OS 60-second demo storyboard</title>
+  <desc id="desc">A five-step public-safe storyboard: upstream candidate, profile policy, gate decision, redacted envelope, and evidence report.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f9fc; }
+      .panel { fill: #ffffff; stroke: #c7d2e5; stroke-width: 2; rx: 8; }
+      .title { font: 700 24px Arial, sans-serif; fill: #172033; }
+      .label { font: 700 17px Arial, sans-serif; fill: #1f2a44; }
+      .body { font: 14px Arial, sans-serif; fill: #46536b; }
+      .metric { font: 700 14px Arial, sans-serif; fill: #0f766e; }
+      .boundary { font: 700 13px Arial, sans-serif; fill: #9a3412; }
+      .arrow { stroke: #5b6f95; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .pill { fill: #e8f0ff; stroke: #9bb3e5; stroke-width: 1.5; rx: 14; }
+      .gate { fill: #eef8f6; stroke: #6bb7aa; stroke-width: 1.5; rx: 14; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#5b6f95" />
+    </marker>
+  </defs>
+  <rect class="bg" width="1200" height="520" />
+  <text class="title" x="48" y="52">Cognitive OS API: 60-Second Demo</text>
+  <text class="body" x="48" y="78">Public-safe path from candidate output to measurable decision evidence.</text>
+
+  <rect class="panel" x="48" y="118" width="184" height="250" />
+  <text class="label" x="68" y="154">1. Candidate</text>
+  <text class="body" x="68" y="184">Upstream model or app</text>
+  <text class="body" x="68" y="206">produces a candidate</text>
+  <text class="body" x="68" y="228">answer or action.</text>
+  <rect class="pill" x="68" y="258" width="140" height="32" />
+  <text class="body" x="86" y="279">candidate_hash</text>
+  <text class="boundary" x="68" y="326">No raw prompt shown</text>
+
+  <rect class="panel" x="280" y="118" width="184" height="250" />
+  <text class="label" x="300" y="154">2. Profile</text>
+  <text class="body" x="300" y="184">Compile user policy</text>
+  <text class="body" x="300" y="206">into a Cognitive</text>
+  <text class="body" x="300" y="228">Configuration Profile.</text>
+  <rect class="pill" x="300" y="258" width="126" height="32" />
+  <text class="body" x="322" y="279">guardian</text>
+  <rect class="pill" x="300" y="302" width="126" height="32" />
+  <text class="body" x="316" y="323">truth_first</text>
+
+  <rect class="panel" x="512" y="118" width="184" height="250" />
+  <text class="label" x="532" y="154">3. Gate</text>
+  <text class="body" x="532" y="184">Score risk and decide</text>
+  <text class="body" x="532" y="206">how the candidate can</text>
+  <text class="body" x="532" y="228">leave the system.</text>
+  <rect class="gate" x="532" y="258" width="130" height="32" />
+  <text class="body" x="555" y="279">ALLOW</text>
+  <rect class="gate" x="532" y="302" width="130" height="32" />
+  <text class="body" x="550" y="323">DEGRADE</text>
+
+  <rect class="panel" x="744" y="118" width="184" height="250" />
+  <text class="label" x="764" y="154">4. Envelope</text>
+  <text class="body" x="764" y="184">Emit redacted public</text>
+  <text class="body" x="764" y="206">decision evidence with</text>
+  <text class="body" x="764" y="228">hashes and reasons.</text>
+  <rect class="pill" x="764" y="258" width="128" height="32" />
+  <text class="body" x="787" y="279">trace_id</text>
+  <rect class="pill" x="764" y="302" width="128" height="32" />
+  <text class="body" x="783" y="323">redacted</text>
+
+  <rect class="panel" x="976" y="118" width="184" height="250" />
+  <text class="label" x="996" y="154">5. Report</text>
+  <text class="body" x="996" y="184">Run reviewer-facing</text>
+  <text class="body" x="996" y="206">evidence endpoints and</text>
+  <text class="body" x="996" y="228">benchmark commands.</text>
+  <text class="metric" x="996" y="268">6 scenarios</text>
+  <text class="metric" x="996" y="292">18 decisions</text>
+  <text class="metric" x="996" y="316">100% redaction pass</text>
+
+  <path class="arrow" d="M232 244 H274" />
+  <path class="arrow" d="M464 244 H506" />
+  <path class="arrow" d="M696 244 H738" />
+  <path class="arrow" d="M928 244 H970" />
+
+  <rect class="panel" x="48" y="408" width="1112" height="62" />
+  <text class="body" x="68" y="436">Boundary: not AGI, not global LLM safety SOTA, not universal harmful-response blocking, not a complete safety guarantee.</text>
+  <text class="body" x="68" y="458">Claim: a reference architecture for traceable LLM gate, profile, and decision governance under included-suite evidence.</text>
+</svg>
