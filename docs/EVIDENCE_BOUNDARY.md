@@ -39,3 +39,5 @@ performance claim.
 The external-style challenge pack is intentionally separate from the seed
 benchmark. Its current gate accuracy is 37.50%. That lower score is preserved as
 limitation evidence rather than hidden behind the included-suite headline.
+
+Failure notes: [CHALLENGE_FAILURE_ANALYSIS.md](CHALLENGE_FAILURE_ANALYSIS.md)

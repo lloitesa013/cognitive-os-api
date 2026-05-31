@@ -49,6 +49,8 @@ report.
 | Adversarial evidence pack | 6 scenarios / 18 decisions | 100.00% | Trace completeness 100.00%; redaction pass 100.00% | Included suite |
 | External-style challenge pack | 8 scenarios / 24 decisions | 37.50% | Trace completeness 100.00%; redaction pass 100.00% | Limitation-discovery pack, not a third-party benchmark |
 
+Challenge failure notes: [docs/CHALLENGE_FAILURE_ANALYSIS.md](docs/CHALLENGE_FAILURE_ANALYSIS.md)
+
 ## Evidence Boundary
 
 These are included-suite measurements: 90 seed decisions, 6 adversarial
@@ -165,6 +167,7 @@ are not stored for later retrieval unless explicitly requested.
 - [docs/TRACE_PRIVACY.md](docs/TRACE_PRIVACY.md)
 - [docs/BASELINE_METHOD.md](docs/BASELINE_METHOD.md)
 - [docs/EVIDENCE_BOUNDARY.md](docs/EVIDENCE_BOUNDARY.md)
+- [docs/CHALLENGE_FAILURE_ANALYSIS.md](docs/CHALLENGE_FAILURE_ANALYSIS.md)
 - [docs/REPRODUCTION.md](docs/REPRODUCTION.md)
 - [docs/DEMO_SCRIPT_60_SEC.md](docs/DEMO_SCRIPT_60_SEC.md)
 - [docs/DEMO_SCRIPT_3_MIN.md](docs/DEMO_SCRIPT_3_MIN.md)
