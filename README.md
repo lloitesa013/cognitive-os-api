@@ -2,6 +2,8 @@
 
 # Cognitive OS API v0.1.5
 
+[![Cognitive OS Verification CI](https://github.com/lloitesa013/cognitive-os-api/actions/workflows/ci.yml/badge.svg)](https://github.com/lloitesa013/cognitive-os-api/actions/workflows/ci.yml)
+
 Cognitive OS API is a traceable LLM gate / profile / decision governance
 reference architecture. It sits above upstream model output, compiles a user's
 policy into a Cognitive Configuration Profile, evaluates a candidate answer or
