@@ -87,6 +87,14 @@ def build_evidence_summary() -> Dict[str, Any]:
             "third_party_benchmark": challenge["third_party_benchmark"],
             "interpretation": challenge["interpretation"],
         },
+        "external_reference_adapter": {
+            "available": True,
+            "input_formats": ["csv", "jsonl", "json"],
+            "required_fields": ["source", "item_id", "category", "prompt"],
+            "public_export": "prompt hashes, gates, trace checks, and redaction checks",
+            "raw_text_exported": False,
+            "third_party_benchmark_by_default": False,
+        },
         "conformance": {
             "benchmark_version": conformance["benchmark_version"],
             "protocol_version": conformance["protocol_version"],
@@ -205,6 +213,7 @@ def build_evidence_report() -> Dict[str, Any]:
         ],
         "claim_boundary": summary["positioning"]["not_claims"],
         "headline_metrics": summary["headline_metrics"],
+        "external_reference_adapter": summary["external_reference_adapter"],
         "adversarial": adversarial,
         "challenge_pack": challenge,
     }

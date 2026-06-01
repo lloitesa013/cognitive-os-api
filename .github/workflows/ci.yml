@@ -39,6 +39,10 @@ jobs:
       run: |
         python -m cognitive_os.benchmarks.cognitiveos_v0.run_challenge_pack --pretty
 
+    - name: Run external reference adapter fixture
+      run: |
+        python -m cognitive_os.benchmarks.cognitiveos_v0.run_external_reference_pack --pretty
+
     - name: Run seed benchmark
       run: |
         python -m cognitive_os.benchmarks.cognitiveos_v0.run_benchmark --pretty

@@ -13,6 +13,8 @@ adoption or general safety.
   mock provider.
 - The public adversarial evidence report keeps raw prompt and candidate text
   out of reviewer-facing payloads.
+- The external reference adapter lets a reviewer run local CSV, JSONL, or JSON
+  inputs while exporting prompt hashes and metrics instead of raw prompt text.
 
 ## What The Current Evidence Does Not Support
 
@@ -31,6 +33,8 @@ adoption or general safety.
 | Adversarial profile decisions | 18 |
 | External-style challenge scenarios | 8 |
 | External-style challenge profile decisions | 24 |
+| Bundled external reference fixture items | 4 |
+| Bundled external reference fixture decisions | 12 |
 
 The 100.00% values in the README are included-suite measurements. They should
 be read as a reproducibility and protocol-conformance signal, not as a global
@@ -41,3 +45,10 @@ benchmark. Its current gate accuracy is 37.50%. That lower score is preserved as
 limitation evidence rather than hidden behind the included-suite headline.
 
 Failure notes: [CHALLENGE_FAILURE_ANALYSIS.md](CHALLENGE_FAILURE_ANALYSIS.md)
+
+The bundled external reference fixture is only a public-safe adapter smoke test.
+A reviewer-provided local run can be reported as outside reproduction, but this
+repository should not call it a third-party benchmark result unless the dataset
+source, transformation, command, and environment are independently auditable.
+
+External reproduction path: [EXTERNAL_REPRODUCTION.md](EXTERNAL_REPRODUCTION.md)

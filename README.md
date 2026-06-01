@@ -48,8 +48,10 @@ report.
 | Protocol conformance | 90 decisions | N/A | Conformance pass rate 100.00% | Included suite |
 | Adversarial evidence pack | 6 scenarios / 18 decisions | 100.00% | Trace completeness 100.00%; redaction pass 100.00% | Included suite |
 | External-style challenge pack | 8 scenarios / 24 decisions | 37.50% | Trace completeness 100.00%; redaction pass 100.00% | Limitation-discovery pack, not a third-party benchmark |
+| External reference adapter | Reviewer-provided CSV/JSONL/JSON | N/A | Prompt hashes only; redaction pass reported | Local reviewer path, not bundled external evidence |
 
 Challenge failure notes: [docs/CHALLENGE_FAILURE_ANALYSIS.md](docs/CHALLENGE_FAILURE_ANALYSIS.md)
+External reproduction path: [docs/EXTERNAL_REPRODUCTION.md](docs/EXTERNAL_REPRODUCTION.md)
 
 ## Evidence Boundary
 
@@ -92,7 +94,12 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m cognitive_os.benchmarks.cognitiveos_v0.run_baselines --pretty
 .\.venv\Scripts\python.exe -m cognitive_os.benchmarks.cognitiveos_v0.run_conformance --pretty
 .\.venv\Scripts\python.exe -m cognitive_os.benchmarks.cognitiveos_v0.run_challenge_pack --pretty
+.\.venv\Scripts\python.exe -m cognitive_os.benchmarks.cognitiveos_v0.run_external_reference_pack --pretty
 ```
+
+External reviewer-owned CSV/JSONL/JSON files can be run through the same
+adapter without exporting raw prompt text. See
+[docs/EXTERNAL_REPRODUCTION.md](docs/EXTERNAL_REPRODUCTION.md).
 
 Optional FastAPI server:
 
@@ -169,6 +176,8 @@ are not stored for later retrieval unless explicitly requested.
 - [docs/EVIDENCE_BOUNDARY.md](docs/EVIDENCE_BOUNDARY.md)
 - [docs/CHALLENGE_FAILURE_ANALYSIS.md](docs/CHALLENGE_FAILURE_ANALYSIS.md)
 - [docs/REPRODUCTION.md](docs/REPRODUCTION.md)
+- [docs/EXTERNAL_REPRODUCTION.md](docs/EXTERNAL_REPRODUCTION.md)
+- [docs/EXTERNAL_RESULT_REPORTING.md](docs/EXTERNAL_RESULT_REPORTING.md)
 - [docs/DEMO_SCRIPT_60_SEC.md](docs/DEMO_SCRIPT_60_SEC.md)
 - [docs/DEMO_SCRIPT_3_MIN.md](docs/DEMO_SCRIPT_3_MIN.md)
 
