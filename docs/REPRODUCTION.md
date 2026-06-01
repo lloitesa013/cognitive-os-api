@@ -20,8 +20,8 @@ CI currently runs on:
 - Python 3.7
 - `requirements-dev.txt`
 
-Local Windows PowerShell reproduction is expected to work with Python 3.7 or
-newer.
+Local reproduction is expected to work with Python 3.7 or newer on Windows,
+macOS, or Linux.
 
 ## Fresh Clone
 
@@ -33,6 +33,16 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
 ```
 
+macOS/Linux venv equivalent:
+
+```bash
+git clone https://github.com/lloitesa013/cognitive-os-api.git
+cd cognitive-os-api
+python -m venv .venv
+.venv/bin/python -m pip install --upgrade pip
+.venv/bin/python -m pip install -r requirements-dev.txt
+```
+
 ## Verification Commands
 
 ```powershell
@@ -42,11 +52,25 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m cognitive_os.benchmarks.cognitiveos_v0.run_benchmark --pretty
 .\.venv\Scripts\python.exe -m cognitive_os.benchmarks.cognitiveos_v0.run_baselines --pretty
 .\.venv\Scripts\python.exe -m cognitive_os.benchmarks.cognitiveos_v0.run_conformance --pretty
+.\.venv\Scripts\python.exe -m cognitive_os.benchmarks.cognitiveos_v0.run_external_reference_pack --pretty
+```
+
+OS-neutral module commands, assuming dependencies are installed in the active
+environment:
+
+```bash
+python -m unittest -v tests.test_api tests.test_benchmark tests.test_provider
+python -m cognitive_os.benchmarks.cognitiveos_v0.run_adversarial
+python -m cognitive_os.benchmarks.cognitiveos_v0.run_challenge_pack --pretty
+python -m cognitive_os.benchmarks.cognitiveos_v0.run_benchmark --pretty
+python -m cognitive_os.benchmarks.cognitiveos_v0.run_baselines --pretty
+python -m cognitive_os.benchmarks.cognitiveos_v0.run_conformance --pretty
+python -m cognitive_os.benchmarks.cognitiveos_v0.run_external_reference_pack --pretty
 ```
 
 ## Expected Result
 
-The unit command should report 16 tests passing, with one OpenAI integration
+The unit command should report 19 tests passing, with one OpenAI integration
 test skipped unless explicitly enabled.
 
 Included seed/adversarial suites should reproduce the README's headline
@@ -64,6 +88,10 @@ third_party_benchmark: false
 
 The lower challenge-pack gate score is limitation evidence. It should not be
 rewritten into a success claim.
+
+The external reference adapter uses `mock` by default and requires no network
+access, API key, or OpenAI model name. The OpenAI adapter is separate and
+disabled unless a reviewer explicitly selects it and provides local credentials.
 
 ## Evidence Privacy Check
 

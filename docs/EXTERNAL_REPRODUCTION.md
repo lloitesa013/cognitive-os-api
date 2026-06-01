@@ -30,11 +30,30 @@ is a public-safe smoke test. It is not a third-party benchmark result.
 
 Run the bundled public-safe fixture:
 
+OS-neutral:
+
+```bash
+python -m cognitive_os.benchmarks.cognitiveos_v0.run_external_reference_pack --pretty
+```
+
+Windows PowerShell with the local venv executable:
+
 ```powershell
 .\.venv\Scripts\python.exe -m cognitive_os.benchmarks.cognitiveos_v0.run_external_reference_pack --pretty
 ```
 
 Run a reviewer-owned local file:
+
+OS-neutral:
+
+```bash
+python -m cognitive_os.benchmarks.cognitiveos_v0.run_external_reference_pack \
+  --input /path/to/reviewer_dataset.jsonl \
+  --dataset-label "reviewer-local-redteam-v1" \
+  --pretty
+```
+
+Windows PowerShell with the local venv executable:
 
 ```powershell
 .\.venv\Scripts\python.exe -m cognitive_os.benchmarks.cognitiveos_v0.run_external_reference_pack `
@@ -42,6 +61,11 @@ Run a reviewer-owned local file:
   --dataset-label "reviewer-local-redteam-v1" `
   --pretty
 ```
+
+By default the adapter uses `--provider mock`. That path is deterministic and
+does not require an API key, an OpenAI model name, or a network call. If a
+reviewer chooses `--provider openai` or `--provider openai:<model>`, that is a
+separate provider smoke test and must use explicit local credentials.
 
 ## What The Report Emits
 
@@ -89,3 +113,11 @@ source project and transform it locally into the four-field schema above.
 Any such run should be described as reviewer-provided local evidence unless the
 dataset source, transformation, command, and environment are independently
 auditable.
+
+## Maintainer Self-Audit
+
+The first maintainer self-audit is recorded in
+[SELF_AUDIT_REPRODUCTION_REPORT.md](SELF_AUDIT_REPRODUCTION_REPORT.md). It is
+not an outside reproduction report. It documents one friction fix: JSON/JSONL
+inputs with a UTF-8 BOM are now accepted, which matters for files created by
+some Windows tools.

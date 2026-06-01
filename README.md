@@ -85,6 +85,17 @@ claims.
 For a clean clone, expected outputs, and mismatch reporting, use the
 [reproduction guide](docs/REPRODUCTION.md).
 
+If dependencies are already installed in your current environment, the module
+commands are OS-neutral:
+
+```bash
+python -m pip install -r requirements-dev.txt
+python -m unittest discover -s tests
+python -m cognitive_os.benchmarks.cognitiveos_v0.run_external_reference_pack --pretty
+```
+
+Windows PowerShell using the local venv executable:
+
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
@@ -100,6 +111,9 @@ python -m venv .venv
 External reviewer-owned CSV/JSONL/JSON files can be run through the same
 adapter without exporting raw prompt text. See
 [docs/EXTERNAL_REPRODUCTION.md](docs/EXTERNAL_REPRODUCTION.md).
+
+Default reproduction uses the local `mock` provider and requires no API key,
+network call, or OpenAI model name.
 
 Optional FastAPI server:
 
@@ -178,6 +192,7 @@ are not stored for later retrieval unless explicitly requested.
 - [docs/REPRODUCTION.md](docs/REPRODUCTION.md)
 - [docs/EXTERNAL_REPRODUCTION.md](docs/EXTERNAL_REPRODUCTION.md)
 - [docs/EXTERNAL_RESULT_REPORTING.md](docs/EXTERNAL_RESULT_REPORTING.md)
+- [docs/SELF_AUDIT_REPRODUCTION_REPORT.md](docs/SELF_AUDIT_REPRODUCTION_REPORT.md)
 - [docs/DEMO_SCRIPT_60_SEC.md](docs/DEMO_SCRIPT_60_SEC.md)
 - [docs/DEMO_SCRIPT_3_MIN.md](docs/DEMO_SCRIPT_3_MIN.md)
 

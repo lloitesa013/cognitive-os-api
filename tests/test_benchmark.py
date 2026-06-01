@@ -116,6 +116,19 @@ class BenchmarkTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "missing required fields"):
                 load_external_items(path)
 
+    def test_external_reference_jsonl_accepts_utf8_bom(self):
+        with TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "reviewer_fixture.jsonl"
+            path.write_text(
+                (
+                    '\ufeff{"source":"local","item_id":"case-1",'
+                    '"category":"finance","prompt":"Use verified sources."}\n'
+                ),
+                encoding="utf-8",
+            )
+            rows = load_external_items(path)
+        self.assertEqual(rows[0]["item_id"], "case-1")
+
 
 if __name__ == "__main__":
     unittest.main()

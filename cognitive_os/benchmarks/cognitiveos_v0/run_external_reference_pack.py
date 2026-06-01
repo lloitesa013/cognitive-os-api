@@ -45,11 +45,11 @@ def load_external_items(path: Path) -> List[Mapping[str, str]]:
     elif suffix == ".jsonl":
         rows = [
             json.loads(line)
-            for line in path.read_text(encoding="utf-8").splitlines()
+            for line in path.read_text(encoding="utf-8-sig").splitlines()
             if line.strip()
         ]
     elif suffix == ".json":
-        payload = json.loads(path.read_text(encoding="utf-8"))
+        payload = json.loads(path.read_text(encoding="utf-8-sig"))
         rows = payload.get("items", payload) if isinstance(payload, dict) else payload
     else:
         raise ValueError("External reference input must be .csv, .jsonl, or .json.")
